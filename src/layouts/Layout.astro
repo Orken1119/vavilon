@@ -36,6 +36,18 @@ const {
 	</head>
 	<body>
 		<slot />
+		
+		<!-- Плавающая кнопка WhatsApp -->
+		<a 
+			href="https://wa.me/77006620367?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D1%80%D0%BE%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8." 
+			class="whatsapp-float-btn" 
+			target="_blank" 
+			rel="noopener noreferrer"
+			aria-label="Написать в WhatsApp"
+		>
+			<img src="/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon-img" width="75" height="75" />
+			<span class="whatsapp-tooltip">Связаться в WhatsApp</span>
+		</a>
 	</body>
 </html>
 
@@ -183,5 +195,126 @@ const {
 	.fade-in-section.is-visible {
 		opacity: 1;
 		transform: none;
+	}
+
+	/* Плавающая кнопка WhatsApp */
+	.whatsapp-float-btn {
+		position: fixed;
+		bottom: 2.5rem;
+		right: 2.5rem;
+		width: 75px;
+		height: 75px;
+		background: transparent;
+		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 9999;
+		transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		animation: whatsapp-wiggle 3s ease-in-out infinite;
+	}
+
+	.whatsapp-icon-img {
+		width: 100%;
+		height: 100%;
+		display: block;
+		filter: drop-shadow(0 8px 20px rgba(37, 211, 102, 0.3));
+		transition: filter 0.3s ease;
+	}
+
+	.whatsapp-float-btn:hover {
+		transform: scale(1.15) rotate(5deg);
+		animation-play-state: paused; /* останавливаем анимацию покачивания при наведении */
+	}
+
+	.whatsapp-float-btn:hover .whatsapp-icon-img {
+		filter: drop-shadow(0 12px 28px rgba(37, 211, 102, 0.5));
+	}
+
+	/* Всплывающая подсказка */
+	.whatsapp-tooltip {
+		position: absolute;
+		right: 90px;
+		background-color: var(--color-emerald);
+		color: var(--color-white);
+		font-family: var(--font-title);
+		font-size: 0.85rem;
+		font-weight: 600;
+		padding: 0.6rem 1.2rem;
+		border-radius: 6px;
+		box-shadow: var(--shadow-lg);
+		border: 1.5px solid var(--color-gold);
+		white-space: nowrap;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(10px);
+		transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+		pointer-events: none;
+	}
+
+	.whatsapp-tooltip::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: -6px;
+		transform: translateY(-50%) rotate(45deg);
+		width: 10px;
+		height: 10px;
+		background-color: var(--color-emerald);
+		border-right: 1.5px solid var(--color-gold);
+		border-top: 1.5px solid var(--color-gold);
+	}
+
+	.whatsapp-float-btn:hover .whatsapp-tooltip {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0);
+	}
+
+	/* Анимация легкого покачивания и пульсации */
+	@keyframes whatsapp-wiggle {
+		0%, 100% {
+			transform: scale(1) rotate(0deg);
+		}
+		5% {
+			transform: scale(1.08) rotate(-8deg);
+		}
+		10% {
+			transform: scale(1.08) rotate(8deg);
+		}
+		15% {
+			transform: scale(1.08) rotate(-8deg);
+		}
+		20% {
+			transform: scale(1.08) rotate(8deg);
+		}
+		25%, 70% {
+			transform: scale(1) rotate(0deg);
+		}
+		75% {
+			transform: scale(1.05);
+		}
+		80% {
+			transform: scale(0.98);
+		}
+		85% {
+			transform: scale(1.03);
+		}
+		90% {
+			transform: scale(1);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.whatsapp-float-btn {
+			bottom: 1.5rem;
+			right: 1.5rem;
+			width: 60px;
+			height: 60px;
+		}
+
+		.whatsapp-tooltip {
+			display: none;
+		}
 	}
 </style>
