@@ -1,0 +1,294 @@
+---
+const steps = [
+	{
+		number: "01",
+		title: "Бесплатная консультация",
+		desc: "Вы связываетесь с нами. Мы анализируем вашу ситуацию, изучаем имеющиеся документы и предлагаем варианты решения."
+	},
+	{
+		number: "02",
+		title: "Официальный договор",
+		desc: "Заключаем двухсторонний договор, где четко прописываем сроки, финальную стоимость и наши юридические обязательства."
+	},
+	{
+		number: "03",
+		title: "Оформление доверенности",
+		desc: "Вы выписываете доверенность на наших сотрудников. Это дает нам право представлять ваши интересы в Горархитектуре, Урбанистике и Департаменте Юстиции без вашего личного присутствия."
+	},
+	{
+		number: "04",
+		title: "Предоплата и сбор документов",
+		desc: "Вы вносите предоплату и передаете базовый пакет документов (правоустанавливающие акты, техпаспорт). Мы приступаем к разработке проектов или согласованию."
+	},
+	{
+		number: "05",
+		title: "Получение готового результата",
+		desc: "Мы полностью ведем процесс до завершения: сдаем объект, регистрируем документы в Департаменте Юстиции и передаем вам готовый пакет на руки."
+	}
+];
+---
+
+<section class="process-section" id="process">
+	<div class="process-bg-dots"></div>
+	<div class="container">
+		<div class="section-header">
+			<span class="section-subtitle">Прозрачное сотрудничество</span>
+			<h2 class="section-title text-white">Как мы работаем</h2>
+			<div class="section-divider"></div>
+			<p class="section-desc text-white-muted">
+				Схема нашего взаимодействия проста и юридически прозрачна. Вам не придется ходить по государственным органам и стоять в очередях.
+			</p>
+		</div>
+
+		<div class="timeline-container">
+			<div class="timeline-line"></div>
+			
+			<div class="steps-wrapper">
+				{steps.map((step, index) => (
+					<div class={`timeline-step ${index % 2 === 0 ? 'step-left' : 'step-right'}`}>
+						<div class="step-badge">{step.number}</div>
+						<div class="step-card">
+							<h3 class="step-title">{step.title}</h3>
+							<p class="step-desc">{step.desc}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<div class="process-guarantee">
+			<div class="guarantee-icon">🤝</div>
+			<div class="guarantee-content">
+				<h3>Наша гарантия безопасности</h3>
+				<p>Все условия фиксируются в договоре. В случае невозможности решения вашей задачи (например, из-за действующих законодательных ограничений в Алматы), мы сообщим об этом сразу на этапе консультации и не возьмемся за проект.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.process-section {
+		background-color: var(--color-emerald);
+		padding: 6rem 0;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.process-bg-dots {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0.03;
+		background-image: radial-gradient(var(--color-gold) 1px, transparent 0);
+		background-size: 24px 24px;
+		pointer-events: none;
+	}
+
+	.text-white {
+		color: var(--color-white) !important;
+	}
+
+	.text-white-muted {
+		color: rgba(250, 248, 245, 0.7) !important;
+	}
+
+	.section-header {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto 4rem;
+	}
+
+	.section-subtitle {
+		font-family: var(--font-title);
+		font-weight: 600;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		color: var(--color-gold);
+		margin-bottom: 0.75rem;
+		display: block;
+	}
+
+	.section-title {
+		font-size: 2.2rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
+	.section-divider {
+		width: 60px;
+		height: 3px;
+		background-color: var(--color-gold);
+		margin: 0.75rem auto 1.5rem;
+		border-radius: 2px;
+	}
+
+	/* Временная шкала (Timeline) */
+	.timeline-container {
+		position: relative;
+		max-width: 900px;
+		margin: 0 auto 5rem;
+	}
+
+	.timeline-line {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		width: 2px;
+		background: linear-gradient(to bottom, rgba(197, 160, 89, 0.1), var(--color-gold), rgba(197, 160, 89, 0.1));
+		transform: translateX(-50%);
+	}
+
+	.steps-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	.timeline-step {
+		display: flex;
+		position: relative;
+		width: 50%;
+		z-index: 2;
+	}
+
+	.step-left {
+		align-self: flex-start;
+		justify-content: flex-end;
+		padding-right: 3rem;
+		text-align: right;
+	}
+
+	.step-right {
+		align-self: flex-end;
+		justify-content: flex-start;
+		padding-left: 3rem;
+		text-align: left;
+	}
+
+	.step-badge {
+		position: absolute;
+		top: 1.5rem;
+		width: 46px;
+		height: 46px;
+		border-radius: 50%;
+		background-color: var(--color-emerald);
+		border: 2px solid var(--color-gold);
+		color: var(--color-gold);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--font-title);
+		font-weight: 700;
+		font-size: 0.95rem;
+		box-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
+		transition: all var(--transition-normal);
+	}
+
+	.step-left .step-badge {
+		right: -23px;
+	}
+
+	.step-right .step-badge {
+		left: -23px;
+	}
+
+	.timeline-step:hover .step-badge {
+		background-color: var(--color-gold);
+		color: var(--color-emerald);
+		transform: scale(1.1);
+	}
+
+	.step-card {
+		background-color: rgba(51, 61, 57, 0.4); /* Graphite-Green с прозрачностью */
+		border: 1px solid rgba(250, 248, 245, 0.05);
+		border-radius: 8px;
+		padding: 2rem;
+		width: 100%;
+		max-width: 400px;
+		box-shadow: var(--shadow-sm);
+		backdrop-filter: blur(5px);
+		transition: all var(--transition-normal);
+	}
+
+	.timeline-step:hover .step-card {
+		background-color: rgba(51, 61, 57, 0.6);
+		border-color: rgba(197, 160, 89, 0.2);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.step-title {
+		font-size: 1.15rem;
+		font-weight: 700;
+		color: var(--color-white);
+		margin-bottom: 0.75rem;
+	}
+
+	.step-desc {
+		font-size: 0.85rem;
+		color: rgba(250, 248, 245, 0.7);
+		line-height: 1.6;
+	}
+
+	/* Карточка гарантии */
+	.process-guarantee {
+		max-width: 800px;
+		margin: 0 auto;
+		background: rgba(197, 160, 89, 0.08);
+		border: 1px dashed var(--color-gold);
+		border-radius: 8px;
+		padding: 2rem;
+		display: flex;
+		gap: 1.5rem;
+		align-items: center;
+	}
+
+	.guarantee-icon {
+		font-size: 2.5rem;
+	}
+
+	.guarantee-content h3 {
+		font-size: 1.2rem;
+		font-weight: 700;
+		color: var(--color-gold);
+		margin-bottom: 0.5rem;
+	}
+
+	.guarantee-content p {
+		font-size: 0.85rem;
+		color: rgba(250, 248, 245, 0.8);
+		line-height: 1.6;
+	}
+
+	@media (max-width: 768px) {
+		.timeline-line {
+			left: 20px;
+		}
+
+		.timeline-step {
+			width: 100%;
+			align-self: flex-start;
+			padding-left: 3.5rem;
+			padding-right: 0;
+			text-align: left;
+		}
+
+		.step-left .step-badge, .step-right .step-badge {
+			left: -3px;
+		}
+
+		.step-card {
+			max-width: 100%;
+		}
+
+		.process-guarantee {
+			flex-direction: column;
+			text-align: center;
+			gap: 1rem;
+		}
+	}
+</style>

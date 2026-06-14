@@ -1,0 +1,306 @@
+---
+---
+<section class="contacts-section" id="contacts">
+	<div class="container contacts-container">
+		
+		<!-- Информация для связи -->
+		<div class="contacts-info">
+			<span class="section-subtitle">Свяжитесь с нами</span>
+			<h2 class="section-title text-white">Бесплатная консультация</h2>
+			<div class="section-divider"></div>
+			
+			<p class="contacts-desc">
+				Оставьте заявку или позвоните нам напрямую. Мы проведем первичный анализ ваших документов, расскажем о рисках и предложим план действий по узаконению.
+			</p>
+
+			<div class="info-links">
+				<a href="tel:+77077164122" class="info-link-item">
+					<div class="info-icon">📞</div>
+					<div class="info-text">
+						<span>Позвонить напрямую:</span>
+						<strong>+7 (707) 716-41-22</strong>
+					</div>
+				</a>
+
+				<a href="https://wa.me/77077164122" target="_blank" rel="noopener noreferrer" class="info-link-item link-whatsapp">
+					<div class="info-icon">💬</div>
+					<div class="info-text">
+						<span>Написать в WhatsApp:</span>
+						<strong>+7 707 716 41 22</strong>
+					</div>
+				</a>
+
+				<div class="info-link-item">
+					<div class="info-icon">📍</div>
+					<div class="info-text">
+						<span>Офис компании:</span>
+						<strong>г. Алматы, Республика Казахстан</strong>
+					</div>
+				</div>
+
+				<div class="info-link-item">
+					<div class="info-icon">⏰</div>
+					<div class="info-text">
+						<span>Режим работы:</span>
+						<strong>Пн - Пт: 09:00 – 18:00</strong>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Форма заявки -->
+		<div class="contacts-form-box">
+			<form id="consultation-form" class="consult-form">
+				<div class="form-group">
+					<label for="client-name">Ваше имя</label>
+					<input type="text" id="client-name" name="name" required placeholder="Например, Арман" class="form-input" />
+				</div>
+
+				<div class="form-group">
+					<label for="client-phone">Номер телефона</label>
+					<input type="tel" id="client-phone" name="phone" required placeholder="+7 (707) 123-45-67" class="form-input" />
+				</div>
+
+				<div class="form-group">
+					<label for="client-service">Какая услуга вас интересует?</label>
+					<select id="client-service" name="service" class="form-input form-select">
+						<option value="default">Выберите услугу...</option>
+						<option value="pereplanirovka">Узаконение перепланировки</option>
+						<option value="apz">АПЗ и эскизный проект</option>
+						<option value="vvod">Ввод в эксплуатацию</option>
+						<option value="pdp">Разработка/изменение ПДП</option>
+						<option value="vivod">Вывод из жилого фонда</option>
+						<option value="seismo">Сейсмозаключение</option>
+						<option value="other">Другой вопрос</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="client-message">Детали вашей ситуации (необязательно)</label>
+					<textarea id="client-message" name="message" rows="4" placeholder="Опишите ваш объект, район Алматы или возникшую проблему..." class="form-input textarea-input"></textarea>
+				</div>
+
+				<button type="submit" class="btn btn-gold w-full form-submit-btn">
+					<span>Отправить заявку</span>
+				</button>
+				
+				<div class="form-status" id="form-status-msg"></div>
+			</form>
+		</div>
+
+	</div>
+</section>
+
+<style>
+	.contacts-section {
+		background-color: var(--color-emerald);
+		padding: 6rem 0;
+		position: relative;
+	}
+
+	.contacts-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: center;
+	}
+
+	.text-white {
+		color: var(--color-white) !important;
+	}
+
+	.contacts-desc {
+		color: rgba(250, 248, 245, 0.8);
+		font-size: 1.05rem;
+		line-height: 1.7;
+		margin-bottom: 2.5rem;
+	}
+
+	.info-links {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.info-link-item {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		padding: 1rem 1.25rem;
+		background: rgba(250, 248, 245, 0.04);
+		border: 1px solid rgba(250, 248, 245, 0.05);
+		border-radius: 8px;
+		transition: all var(--transition-fast);
+	}
+
+	.info-link-item:hover {
+		background: rgba(197, 160, 89, 0.08);
+		border-color: rgba(197, 160, 89, 0.3);
+		transform: translateX(4px);
+	}
+
+	.link-whatsapp:hover {
+		background: rgba(37, 211, 102, 0.08);
+		border-color: rgba(37, 211, 102, 0.3);
+	}
+
+	.info-icon {
+		font-size: 1.75rem;
+		width: 45px;
+		height: 45px;
+		background-color: rgba(197, 160, 89, 0.1);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.info-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+
+	.info-text span {
+		font-size: 0.75rem;
+		color: rgba(250, 248, 245, 0.5);
+	}
+
+	.info-text strong {
+		font-size: 1.1rem;
+		color: var(--color-white);
+		font-weight: 700;
+	}
+
+	/* Форма обратной связи */
+	.contacts-form-box {
+		background-color: var(--color-white);
+		padding: 3rem;
+		border-radius: 12px;
+		border: 1px solid rgba(197, 160, 89, 0.2);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.consult-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.form-group label {
+		font-family: var(--font-title);
+		font-weight: 700;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.02em;
+		color: var(--color-emerald);
+	}
+
+	.form-input {
+		padding: 0.75rem 1rem;
+		border: 1px solid rgba(19, 51, 40, 0.15);
+		background-color: var(--color-cream);
+		border-radius: 6px;
+		font-size: 0.9rem;
+		color: var(--color-graphite);
+		transition: all var(--transition-fast);
+	}
+
+	.form-input:focus {
+		outline: none;
+		border-color: var(--color-gold);
+		background-color: var(--color-white);
+		box-shadow: 0 0 0 3px var(--color-gold-light);
+	}
+
+	.form-select {
+		cursor: pointer;
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1.41 0.589844L6 5.16984L10.59 0.589844L12 1.99984L6 7.99984L0 1.99984L1.41 0.589844Z' fill='%23133328'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 1rem center;
+		padding-right: 2.5rem;
+	}
+
+	.textarea-input {
+		resize: vertical;
+		min-height: 100px;
+	}
+
+	.w-full {
+		width: 100%;
+	}
+
+	.form-status {
+		font-size: 0.85rem;
+		text-align: center;
+		margin-top: 0.5rem;
+		font-weight: 600;
+	}
+
+	.form-status.success {
+		color: #2e7d32;
+	}
+
+	.form-status.error {
+		color: #c62828;
+	}
+
+	@media (max-width: 992px) {
+		.contacts-container {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.contacts-form-box {
+			padding: 2.5rem 1.5rem;
+		}
+	}
+</style>
+
+<script>
+	const form = document.getElementById('consultation-form') as HTMLFormElement | null;
+	const statusMsg = document.getElementById('form-status-msg');
+
+	if (form && statusMsg) {
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			
+			// Собираем данные
+			const formData = new FormData(form);
+			const name = formData.get('name') as string;
+			const phone = formData.get('phone') as string;
+			const serviceSelect = document.getElementById('client-service') as HTMLSelectElement | null;
+			const service = serviceSelect ? serviceSelect.options[serviceSelect.selectedIndex].text : '';
+			const message = formData.get('message') as string;
+
+			statusMsg.textContent = "Отправка...";
+			statusMsg.className = "form-status";
+
+			// Симуляция отправки (так как это статический Astro-сайт)
+			setTimeout(() => {
+				// Очищаем форму
+				form.reset();
+				statusMsg.textContent = "Спасибо! Ваша заявка успешно отправлена. Специалист свяжется с вами в течение 15 минут.";
+				statusMsg.className = "form-status success";
+
+				// Для удобства пользователя также можно сгенерировать WhatsApp ссылку
+				const waText = encodeURIComponent(`Здравствуйте! Меня зовут ${name}. Телефон: ${phone}. Услуга: ${service}. ${message ? 'Описание ситуации: ' + message : ''}`);
+				const waUrl = `https://wa.me/77077164122?text=${waText}`;
+				
+				// Предлагаем открыть WhatsApp для ускорения
+				const openWa = confirm("Хотите также продублировать заявку напрямую в WhatsApp для моментального ответа?");
+				if (openWa) {
+					window.open(waUrl, '_blank');
+				}
+			}, 1000);
+		});
+	}
+</script>

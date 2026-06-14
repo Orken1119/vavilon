@@ -1,0 +1,254 @@
+---
+---
+<footer class="footer">
+	<div class="container footer-container">
+		
+		<!-- Блок бренда -->
+		<div class="footer-brand">
+			<a href="#" class="footer-logo">
+				<img src="/vavilon_logo.svg" alt="Логотип ТОО Вавилон-Проект" class="footer-logo-img" width="45" height="42" />
+				<div class="logo-text">
+					<span class="logo-title">ВАВИЛОН-ПРОЕКТ</span>
+					<span class="logo-subtitle">СТРОИТЕЛЬНЫЙ КОНСАЛТИНГ</span>
+				</div>
+			</a>
+			<p class="footer-desc">
+				Профессиональный консалтинг в сфере недвижимости, узаконения перепланировок и подготовки разрешительных документов для строительства в г. Алматы.
+			</p>
+		</div>
+
+		<!-- Блок ссылок -->
+		<div class="footer-links-group">
+			<h4 class="footer-title">Навигация</h4>
+			<ul class="footer-links">
+				<li><a href="#services">Наши услуги</a></li>
+				<li><a href="#process">Схема работы</a></li>
+				<li><a href="#advice">Советы юриста</a></li>
+				<li><a href="#about">О компании</a></li>
+			</ul>
+		</div>
+
+		<!-- Блок услуг -->
+		<div class="footer-links-group">
+			<h4 class="footer-title">Услуги</h4>
+			<ul class="footer-links">
+				<li><a href="#service-pereplanirovka">Узаконение перепланировок</a></li>
+				<li><a href="#service-apz-project">Получение АПЗ и эскиз</a></li>
+				<li><a href="#service-seismo">Сейсмозаключения</a></li>
+				<li><a href="#service-vvod-exploitation">Ввод в эксплуатацию</a></li>
+			</ul>
+		</div>
+
+		<!-- Контактная информация -->
+		<div class="footer-contacts">
+			<h4 class="footer-title">Контакты</h4>
+			<ul class="footer-contact-list">
+				<li class="contact-item">
+					<span class="contact-icon">📞</span>
+					<a href="tel:+77077164122" class="contact-value">+7 (707) 716-41-22</a>
+				</li>
+				<li class="contact-item">
+					<span class="contact-icon">💬</span>
+					<a href="https://wa.me/77077164122" target="_blank" rel="noopener noreferrer" class="contact-value">Написать в WhatsApp</a>
+				</li>
+				<li class="contact-item">
+					<span class="contact-icon">📍</span>
+					<span class="contact-value">Республика Казахстан, г. Алматы</span>
+				</li>
+				<li class="contact-item">
+					<span class="contact-icon">✉️</span>
+					<span class="contact-value">info@vavilonproekt.kz</span>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- Нижняя плашка копирайта -->
+	<div class="footer-bottom">
+		<div class="container footer-bottom-container">
+			<p class="copyright">
+				&copy; {new Date().getFullYear()} ТОО «vavilonproekt». Все права защищены.
+			</p>
+			<p class="disclaimer">
+				Информация на сайте носит справочный характер и не является публичной офертой.
+			</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background-color: #0c211a; /* Еще более темный оттенок Deep Emerald для глубины */
+		color: rgba(250, 248, 245, 0.7);
+		border-top: 1px solid rgba(197, 160, 89, 0.15);
+		padding-top: 4rem;
+		margin-top: auto;
+	}
+
+	.footer-container {
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+		gap: 3rem;
+		margin-bottom: 3rem;
+	}
+
+	.footer-brand {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.footer-logo {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.footer-logo-img {
+		height: 40px;
+		width: auto;
+	}
+
+	.logo-text {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.logo-title {
+		font-family: var(--font-title);
+		font-weight: 800;
+		font-size: 1.1rem;
+		letter-spacing: 0.05em;
+		color: var(--color-white);
+		line-height: 1.1;
+	}
+
+	.logo-subtitle {
+		font-family: var(--font-primary);
+		font-size: 0.6rem;
+		font-weight: 500;
+		letter-spacing: 0.15em;
+		color: var(--color-gold);
+	}
+
+	.footer-desc {
+		font-size: 0.8rem;
+		line-height: 1.6;
+		color: rgba(250, 248, 245, 0.6);
+	}
+
+	.footer-title {
+		font-family: var(--font-title);
+		font-size: 0.9rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--color-white);
+		margin-bottom: 1.5rem;
+		position: relative;
+		padding-bottom: 0.5rem;
+	}
+
+	.footer-title::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 30px;
+		height: 2px;
+		background-color: var(--color-gold);
+	}
+
+	.footer-links {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.footer-links li a {
+		font-size: 0.85rem;
+		color: rgba(250, 248, 245, 0.6);
+		transition: color var(--transition-fast);
+	}
+
+	.footer-links li a:hover {
+		color: var(--color-gold);
+		padding-left: 2px;
+	}
+
+	.footer-contact-list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.contact-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		font-size: 0.85rem;
+	}
+
+	.contact-icon {
+		color: var(--color-gold);
+		flex-shrink: 0;
+	}
+
+	.contact-value {
+		color: rgba(250, 248, 245, 0.7);
+	}
+
+	a.contact-value:hover {
+		color: var(--color-gold);
+	}
+
+	/* Нижняя плашка */
+	.footer-bottom {
+		border-top: 1px solid rgba(250, 248, 245, 0.05);
+		padding: 1.5rem 0;
+		font-size: 0.75rem;
+		background-color: #081712;
+	}
+
+	.footer-bottom-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.copyright {
+		color: rgba(250, 248, 245, 0.5);
+	}
+
+	.disclaimer {
+		color: rgba(250, 248, 245, 0.3);
+		text-align: right;
+	}
+
+	@media (max-width: 992px) {
+		.footer-container {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2.5rem;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.footer-container {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.footer-bottom-container {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.disclaimer {
+			text-align: center;
+		}
+	}
+</style>

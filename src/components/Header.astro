@@ -1,0 +1,310 @@
+---
+---
+<header class="header">
+	<div class="container header-container">
+		<a href="#" class="logo-link">
+			<img src="/vavilon_logo.svg" alt="Логотип ТОО Вавилон-Проект" class="logo-img" width="45" height="42" />
+			<div class="logo-text">
+				<span class="logo-title">ВАВИЛОН-ПРОЕКТ</span>
+				<span class="logo-subtitle">СТРОИТЕЛЬНЫЙ КОНСАЛТИНГ</span>
+			</div>
+		</a>
+
+		<!-- Навигация для десктопа -->
+		<nav class="nav-desktop">
+			<a href="#services" class="nav-link">Услуги</a>
+			<a href="#process" class="nav-link">Этапы работы</a>
+			<a href="#advice" class="nav-link">Полезные советы</a>
+			<a href="#about" class="nav-link">О компании</a>
+		</nav>
+
+		<div class="header-actions">
+			<a href="tel:+77077164122" class="phone-link">
+				<span class="phone-icon">📞</span>
+				<span class="phone-number">+7 (707) 716-41-22</span>
+			</a>
+			<a href="#contacts" class="btn btn-gold btn-header">Консультация</a>
+			
+			<!-- Бургер-кнопка для мобильных -->
+			<button class="burger-btn" aria-label="Открыть меню" id="burger-menu-btn">
+				<span class="burger-line"></span>
+				<span class="burger-line"></span>
+				<span class="burger-line"></span>
+			</button>
+		</div>
+	</div>
+
+	<!-- Мобильное меню -->
+	<div class="mobile-menu" id="mobile-menu">
+		<nav class="nav-mobile">
+			<a href="#services" class="mobile-nav-link">Услуги</a>
+			<a href="#process" class="mobile-nav-link">Этапы работы</a>
+			<a href="#advice" class="mobile-nav-link">Полезные советы</a>
+			<a href="#about" class="mobile-nav-link">О компании</a>
+			<div class="mobile-menu-divider"></div>
+			<a href="tel:+77077164122" class="mobile-phone-link">
+				<span>📞 +7 (707) 716-41-22</span>
+			</a>
+			<a href="#contacts" class="btn btn-gold w-full mobile-cta-btn">Бесплатная консультация</a>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.header {
+		position: sticky;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+		background-color: rgba(19, 51, 40, 0.95); /* Deep Emerald с легкой прозрачностью */
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid rgba(197, 160, 89, 0.2); /* Тонкая линия Matte Gold */
+		transition: background-color var(--transition-normal);
+	}
+
+	.header-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 80px;
+	}
+
+	.logo-link {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.logo-img {
+		height: 45px;
+		width: auto;
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+	}
+
+	.logo-text {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.logo-title {
+		font-family: var(--font-title);
+		font-weight: 800;
+		font-size: 1.2rem;
+		letter-spacing: 0.05em;
+		color: var(--color-white);
+		line-height: 1.1;
+	}
+
+	.logo-subtitle {
+		font-family: var(--font-primary);
+		font-size: 0.65rem;
+		font-weight: 500;
+		letter-spacing: 0.15em;
+		color: var(--color-gold);
+	}
+
+	.nav-desktop {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.nav-link {
+		font-family: var(--font-title);
+		font-weight: 500;
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--color-white);
+		opacity: 0.85;
+		padding: 0.5rem 0;
+		position: relative;
+	}
+
+	.nav-link:hover {
+		opacity: 1;
+		color: var(--color-gold);
+	}
+
+	.nav-link::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background-color: var(--color-gold);
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform var(--transition-normal);
+	}
+
+	.nav-link:hover::after {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+
+	.header-actions {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.phone-link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--color-white);
+		font-weight: 600;
+		font-size: 0.95rem;
+	}
+
+	.phone-link:hover {
+		color: var(--color-gold);
+	}
+
+	.phone-icon {
+		font-size: 1rem;
+		color: var(--color-gold);
+	}
+
+	.btn-header {
+		padding: 0.5rem 1.25rem;
+		font-size: 0.8rem;
+	}
+
+	.burger-btn {
+		display: none;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 24px;
+		height: 18px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		z-index: 101;
+	}
+
+	.burger-line {
+		width: 100%;
+		height: 2px;
+		background-color: var(--color-white);
+		transition: all var(--transition-normal);
+	}
+
+	/* Мобильное меню */
+	.mobile-menu {
+		position: fixed;
+		top: 80px;
+		left: 0;
+		width: 100%;
+		height: calc(100vh - 80px);
+		background-color: var(--color-emerald);
+		z-index: 99;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-20px);
+		transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+		border-top: 1px solid rgba(197, 160, 89, 0.1);
+	}
+
+	.mobile-menu.is-active {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.nav-mobile {
+		display: flex;
+		flex-direction: column;
+		padding: 2.5rem 1.5rem;
+		gap: 1.5rem;
+	}
+
+	.mobile-nav-link {
+		font-family: var(--font-title);
+		font-size: 1.2rem;
+		font-weight: 600;
+		color: var(--color-white);
+		padding: 0.5rem 0;
+		border-bottom: 1px solid rgba(250, 248, 245, 0.05);
+	}
+
+	.mobile-nav-link:hover {
+		color: var(--color-gold);
+	}
+
+	.mobile-menu-divider {
+		height: 1px;
+		background-color: rgba(197, 160, 89, 0.2);
+		margin: 1rem 0;
+	}
+
+	.mobile-phone-link {
+		color: var(--color-white);
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		display: block;
+	}
+
+	.mobile-cta-btn {
+		width: 100%;
+		margin-top: 0.5rem;
+	}
+
+	/* Бургер-анимация */
+	.burger-btn.is-active .burger-line:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+
+	.burger-btn.is-active .burger-line:nth-child(2) {
+		opacity: 0;
+	}
+
+	.burger-btn.is-active .burger-line:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
+	}
+
+	@media (max-width: 992px) {
+		.nav-desktop {
+			display: none;
+		}
+
+		.phone-number {
+			display: none;
+		}
+
+		.btn-header {
+			display: none;
+		}
+
+		.burger-btn {
+			display: flex;
+		}
+	}
+</style>
+
+<script>
+	const burgerBtn = document.getElementById('burger-menu-btn');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-cta-btn');
+
+	if (burgerBtn && mobileMenu) {
+		burgerBtn.addEventListener('click', () => {
+			burgerBtn.classList.toggle('is-active');
+			mobileMenu.classList.toggle('is-active');
+			document.body.classList.toggle('overflow-hidden');
+		});
+
+		// Закрываем меню при клике на ссылку
+		mobileLinks.forEach(link => {
+			link.addEventListener('click', () => {
+				burgerBtn.classList.remove('is-active');
+				mobileMenu.classList.remove('is-active');
+				document.body.classList.remove('overflow-hidden');
+			});
+		});
+	}
+</script>
