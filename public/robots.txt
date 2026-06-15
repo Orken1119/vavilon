@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vavilonproekt.kz
+
+# Sitemap
+Sitemap: https://vavilonproekt.kz/sitemap-index.xml
