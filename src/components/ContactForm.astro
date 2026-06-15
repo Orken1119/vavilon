@@ -269,7 +269,7 @@
 </style>
 
 <script>
-	const ACCESS_KEY = (import.meta as any).env?.PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
+	const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
 	
 	const form = document.getElementById('consultation-form') as HTMLFormElement | null;
 	const statusMsg = document.getElementById('form-status-msg');
