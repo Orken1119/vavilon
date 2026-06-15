@@ -1,4 +1,5 @@
 ---
+const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
 ---
 <section class="contacts-section" id="contacts">
 	<div class="container contacts-container">
@@ -53,6 +54,7 @@
 			<form id="consultation-form" class="consult-form">
 				<!-- Anti-spam Honeypot for Web3Forms -->
 				<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+				<input type="hidden" name="access_key" id="web3forms-key" value={ACCESS_KEY} />
 
 				<div class="form-group">
 					<label for="client-name">Ваше имя</label>
@@ -269,7 +271,8 @@
 </style>
 
 <script>
-	const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
+	const accessKeyInput = document.getElementById('web3forms-key') as HTMLInputElement | null;
+	const ACCESS_KEY = accessKeyInput ? accessKeyInput.value : "YOUR_ACCESS_KEY_HERE";
 	
 	const form = document.getElementById('consultation-form') as HTMLFormElement | null;
 	const statusMsg = document.getElementById('form-status-msg');
